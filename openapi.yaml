@@ -1,0 +1,93 @@
+openapi: 3.0.1
+info:
+  title: 代办列表插件
+  description: 一个插件，允许用户使用ChatGPT创建和管理TODO列表。
+  version: 'v1'
+servers:
+  - url: https://test.liompei.repl.co
+paths:
+  /todos/{username}:
+    get:
+      operationId: getTodos
+      summary: 获取待办事项列表
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+          description: 用户的名称
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTodosResponse'
+    post:
+      operationId: addTodo
+      summary: 添加一个代办列表
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+          description: 用户的名称
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addTodoRequest'
+      responses:
+        "200":
+          description: OK
+    delete:
+      operationId: deleteTodo
+      summary: 删除一个代办列表
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+          required: true
+          description: 用户的名称
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deleteTodoRequest'
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    getTodosResponse:
+      type: object
+      properties:
+        todos:
+          type: array
+          items:
+            type:string
+          description: 代办列表
+    addTodoRequest:
+      type: object
+      required:
+        - todo
+      properties:
+        todo:
+          type: string
+          description: 添加一个列表
+          required: true
+    deleteTodoRequest:
+      type: object
+      required:
+        - todo_idx
+      properties:
+        todo_idx:
+          type: integer
+          description: 删除一个代办列表
+          required: true
+

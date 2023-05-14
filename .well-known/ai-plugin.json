@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "代办列表插件(无授权)",
+  "name_for_model": "代办",
+  "description_for_human": "用于管理 TODO 列表的插件，您可以添加、删除和查看您的 TODO。",
+  "description_for_model": "用于管理 TODO 列表的插件，您可以添加、删除和查看您的 TODO。",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://test.liompei.repl.co/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://test.liompei.repl.co/logo.png",
+  "contact_email": "newbeiliming@gmail.com",
+  "legal_info_url": "https://aliceheshui.com/legal"
+}
